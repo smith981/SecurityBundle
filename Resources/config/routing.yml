@@ -1,0 +1,9 @@
+login:
+    pattern:   /login
+    defaults:  { _controller: Smith981SecurityBundle:Default:login }
+
+login_check:
+    pattern:   /admin/login_check
+
+logout:
+    pattern:   /admin/logout
