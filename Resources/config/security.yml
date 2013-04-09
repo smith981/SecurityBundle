@@ -6,24 +6,33 @@ security:
 
         login:
             pattern:  ^/login$
-            security: false
+            security: true
             anonymous: ~
 
         secured_area:
+            context:    user
             pattern:    ^/admin
             anonymous: ~
             form_login:
-                login_path: login
-                check_path: login_check
+                login_path: /login
+                check_path: /admin/login_check
                 always_use_default_target_path: true
                 default_target_path: /admin/issue
             logout:
                 path: /admin/logout
-                target: /issue
+                target: /
+
+        # default login area for standard users
+        main:
+            context:            user
+            pattern:            ^/
+            security:  true
+            anonymous: ~
+
 
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: /.*, role: ROLE_USER }
+        - { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
 
     providers:
         in_memory:
