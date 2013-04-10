@@ -2,7 +2,7 @@
     "name": "smith981/securitybundle",
     "description": "A simple security bundle.",
     "autoload": {
-        "files": [ "Smith981SecurityBundle.php" ]
+        "files": [ "Smith981SecurityBundle.php", "Controller/DefaultController.php" ]
     },
     "require": {
         "php": ">=5.3.3",
